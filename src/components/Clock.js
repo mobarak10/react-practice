@@ -3,7 +3,10 @@
 import React from 'react';
 
 class Clock extends React.Component {
-    state = { date: new Date() };
+    state = {
+        date: new Date(),
+        locale: 'bn-BD',
+    };
 
     componentDidMount() {
         this.clockTimer = setInterval(() => this.tick(), 1000);
@@ -13,15 +16,32 @@ class Clock extends React.Component {
         clearInterval(this.clockTimer);
     }
 
+    handleClick = (locale) => {
+        if (this.state.locale === 'bn-BD') {
+            this.setState({
+                locale,
+            });
+        } else {
+            this.setState({
+                locale: 'bn-BD',
+            });
+        }
+    };
+
     tick() {
         this.setState({ date: new Date() });
     }
 
     render() {
         return (
-            <h1 className="heading">
-                <span>{this.state.date.toLocaleTimeString(this.props.locale)}</span>
-            </h1>
+            <div>
+                <h1 className="heading">
+                    <span>{this.state.date.toLocaleTimeString(this.state.locale)}</span>
+                </h1>
+                <button type="button" onClick={this.handleClick.bind('en-US')}>
+                    Click Here
+                </button>
+            </div>
         );
     }
 }
