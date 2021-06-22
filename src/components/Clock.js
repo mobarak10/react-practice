@@ -3,13 +3,14 @@
 import React from 'react';
 
 class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { date: new Date() };
-    }
+    state = { date: new Date() };
 
     componentDidMount() {
-        setInterval(() => this.tick(), 1000);
+        this.clockTimer = setInterval(() => this.tick(), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.clockTimer);
     }
 
     tick() {
