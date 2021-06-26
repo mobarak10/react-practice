@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import Button from './Button';
 
 class Clock extends React.Component {
     state = {
@@ -33,14 +35,14 @@ class Clock extends React.Component {
     }
 
     render() {
+        console.log('clock component render');
+        const { date, locale } = this.state;
         return (
             <div>
                 <h1 className="heading">
-                    <span>{this.state.date.toLocaleTimeString(this.state.locale)}</span>
+                    <span>{date.toLocaleTimeString(locale)}</span>
                 </h1>
-                <button type="button" onClick={() => this.handleClick('en-US')}>
-                    Click Here
-                </button>
+                <Button change={this.handleClick} locale="en-US" />
             </div>
         );
     }
