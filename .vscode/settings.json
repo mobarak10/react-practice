@@ -8,7 +8,7 @@
 
 {
   // Theme
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Learn with Sumit - Peace of the eye",
 
   // config related to code formatting
   "editor.fontSize": 22,
