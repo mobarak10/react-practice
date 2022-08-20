@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class counter extends React.Component {
-    state = {
-        count: 0,
+export default function counter() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [count, setCount] = useState(0);
+    const addFive = () => {
+        let i = 0;
+        while (i < 5) {
+            // setCount(count + 1);
+            setCount((prevState) => prevState + 1);
+            i += 1;
+        }
     };
-
-    incrementCount = () => {
-        this.setState((prevState) => ({ count: prevState.count + 1 }));
-    };
-
-    render() {
-        const { children } = this.props;
-        const { count } = this.state;
-        return children(count, this.incrementCount);
-    }
+    return (
+        <div>
+            <p>{count}</p>
+            <p>
+                <button type="button" onClick={() => setCount((prevState) => prevState + 1)}>
+                    Add 1
+                </button>
+            </p>
+            <p>
+                <button type="button" onClick={addFive}>
+                    Add 5
+                </button>
+            </p>
+        </div>
+    );
 }
