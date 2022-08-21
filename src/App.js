@@ -1,14 +1,16 @@
-import React from 'react';
-// import Todo from './components/Todo';
-import Counter from './components/Counter';
+import React, { useState } from 'react';
+import MyComponent from './components/MyComponent';
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <div className="app">
-                {/* <Todo /> */}
-                <Counter />
-            </div>
-        );
-    }
+export default function App() {
+    const [show, setShow] = useState(true);
+    return (
+        <div className="app">
+            <div>{show && <MyComponent />}</div>
+            <p>
+                <button type="button" onClick={() => setShow((prevState) => !prevState)}>
+                    {show ? 'Hide Post' : 'Show Post'}
+                </button>
+            </p>
+        </div>
+    );
 }
