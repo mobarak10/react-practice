@@ -1,12 +1,10 @@
 import React from 'react';
-// import Form from './components/Form';
-import Time from './components/Time';
+import GetPost2 from './components/Getpost2';
 
 export default function App() {
     return (
         <div className="app">
-            {/* <Form /> */}
-            <Time />
+            <GetPost2 />
         </div>
     );
 }
