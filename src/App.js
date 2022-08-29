@@ -1,10 +1,10 @@
-import React from 'react';
-import GetPost2 from './components/Getpost2';
+import './assets/css/global.css';
+import Logo from './components/Logo';
 
 export default function App() {
     return (
-        <div className="app">
-            <GetPost2 />
+        <div className="App">
+            <Logo />
         </div>
     );
 }
