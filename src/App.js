@@ -1,41 +1,17 @@
-import React from 'react';
-import ClickCounter from './components/ClickCounter';
+import './App.css';
 import Counter from './components/Counter';
-import Section from './components/Section';
-import ThemeContext from './contexts/themeContext';
 
-export default class App extends React.Component {
-    state = {
-        // eslint-disable-next-line react/no-unused-state
-        theme: 'dark',
-        // eslint-disable-next-line react/no-unused-state
-        switchTheme: () => {
-            this.setState(({ theme }) => {
-                if (theme === 'dark') {
-                    return {
-                        theme: 'light',
-                    };
-                }
-                return {
-                    theme: 'dark',
-                };
-            });
-        },
-    };
-
-    render() {
-        return (
-            <div className="app">
-                <Counter>
-                    {(count, incrementCount) => (
-                        <ClickCounter count={count} incrementCount={incrementCount} />
-                    )}
-                </Counter>
-
-                <ThemeContext.Provider value={this.state}>
-                    <Section />
-                </ThemeContext.Provider>
-            </div>
-        );
-    }
+function App() {
+  return (
+    <div class="w-screen h-screen p-10 bg-gray-100 text-slate-700">
+        <h1 class="max-w-md mx-auto text-center text-2xl font-bold">
+              Simple Counter Application
+        </h1>
+        <div class="max-w-md mx-auto mt-10 space-y-5">
+            <Counter />
+        </div>
+    </div>
+  );
 }
+
+export default App;
